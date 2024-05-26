@@ -4,14 +4,14 @@ function CategoryExpensesCard() {
   return (
     <div className="h-3/12 mx-6 mt-9">
       <div className="border-1 rounded-xl border px-7 py-4 shadow-lg">
-        <div className="flex">
+        <div className="flex justify-between">
           <div className="w-40">
             <p className="whitespace-nowrap text-center font-bold">
               Gastos por categoria
             </p>
             <DonutChart data={[100, 50, 200]} />
           </div>
-          <div className="mb-4 ml-4 flex flex-col justify-end gap-2 text-sm">
+          <div className="mb-3 flex flex-col justify-end gap-2 text-sm">
             <p>
               <span className="mr-2 inline-block h-3 w-3 border border-gray-500 bg-amber-700"></span>
               Moradia

@@ -9,7 +9,7 @@ interface HeaderProps {
 
 function Header(props: HeaderProps) {
   return (
-    <div className="h-3/12 bg-gradient-to-r from-verde-gradiente-start to-verde-gradiente-end p-6 text-white">
+    <div className="h-3/12 bg-gradient-to-r from-verde-gradiente-start to-verde-gradiente-end p-6 text-white shadow-md">
       <div className="flex justify-between">
         <RxHamburgerMenu className="text-2xl" />
         <VscBell className="text-2xl" />
