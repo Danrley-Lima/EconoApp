@@ -4,6 +4,8 @@ export default {
   theme: {
     extend: {
       colors: {
+        text: "#000000",
+        textAlternativ: "#868686",
         verde: "#31A063",
         vermelho: "#E64C54",
         "verde-gradiente-end": "#31A078",

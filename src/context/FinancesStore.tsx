@@ -1,19 +1,19 @@
 import { create } from "zustand";
 
-type Conta = {
-  data: string;
-  valor: number;
+export type Account = {
+  date: string;
+  value: number;
   local: string;
-  parcelado: boolean;
-  totalParcelas: number | null;
-  valorParcela: number | null;
-  valorTotal: number;
+  parcel: boolean;
+  totalParcels: number | null;
+  valueParcel: number | null;
+  valueTotal: number;
 };
 
 interface FinancesState {
-  accounts: Conta[];
-  setAccounts: (newAccounts: Conta[]) => void;
-  addAccount: (newAccount: Conta) => void;
+  accounts: Account[];
+  setAccounts: (newAccounts: Account[]) => void;
+  addAccount: (newAccount: Account) => void;
 }
 
 export const useFinancesStore = create<FinancesState>((set) => ({
@@ -28,10 +28,10 @@ export const useFinancesStore = create<FinancesState>((set) => ({
 // export function useFinancesStore() {
 //   return create<FinancesState>((set) => ({
 //     accounts: [],
-//     setAccounts: function (newAccounts: Conta[]) {
+//     setAccounts: function (newAccounts: Account[]) {
 //       set({ accounts: newAccounts });
 //     },
-//     addAccount: function (newAccount: Conta) {
+//     addAccount: function (newAccount: Account) {
 //       set((state) => ({
 //         accounts: [...state.accounts, newAccount],
 //       }));
