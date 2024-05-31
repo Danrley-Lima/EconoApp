@@ -9,7 +9,7 @@ function CardAccount({account}: CardAccountProps) {
     return (
         <div className="
             mx-6 
-            
+            py-2
         ">
             <span className="
                 text-[16px]
@@ -21,7 +21,7 @@ function CardAccount({account}: CardAccountProps) {
                 flex
                 flex-row
                 justify-between
-                mt-[6px]
+                text-textAlternative
             ">
                 <p className="
                     text-[12px]

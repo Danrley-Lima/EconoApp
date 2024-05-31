@@ -12,10 +12,17 @@ function CardHistory() {
                 text-[22px]
                 mx-6 
                 mt-9
+                mb-4
             " >
                 Histórico
             </h3>
-            {accounts.map(( acc ) => <CardAccount account={acc} />)}
+            <div className="
+                flex
+                flex-col
+                divide-y
+            " >
+                {accounts.map(( acc ) => <CardAccount account={acc} />)}
+            </div>
         </section>
     )
 }

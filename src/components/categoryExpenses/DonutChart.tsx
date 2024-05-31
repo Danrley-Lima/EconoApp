@@ -1,13 +1,14 @@
 import { Chart } from "chart.js/auto";
 import { useEffect, useRef } from "react";
 import { ChartTypeRegistry } from "chart.js";
+import { useFinancesStore } from "../../context/FinancesStore";
+import { colors } from "./consts";
 
-interface DonutChartProps {
-  data: number[];
-}
-
-function DonutChart(props: DonutChartProps) {
+function DonutChart() {
   const chartRef = useRef<HTMLCanvasElement>(null);
+
+  const { categories } = useFinancesStore();
+
   const chartInstance =
     useRef<Chart<keyof ChartTypeRegistry, number[], string>>();
 
@@ -32,15 +33,11 @@ function DonutChart(props: DonutChartProps) {
           {
             // offset: ,
             // weight: 20000,
-            spacing: 8,
+            spacing: 20,
             borderWidth: 1,
             borderColor: "gray",
-            backgroundColor: [
-              "rgb(255, 99, 132)",
-              "rgb(54, 162, 235)",
-              "rgb(255, 205, 86)",
-            ],
-            data: props.data,
+            backgroundColor: colors,
+            data: categories.map(({quant}) => quant),
           },
         ],
       },
@@ -59,7 +56,7 @@ function DonutChart(props: DonutChartProps) {
         chartInstance.current.destroy();
       }
     };
-  }, [props.data]);
+  }, [categories]);
 
   return (
     <>
