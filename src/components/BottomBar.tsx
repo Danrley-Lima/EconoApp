@@ -17,13 +17,16 @@ function BottomBar({selected}: BottomBarProps) {
             border-t-2
             bg-[#fafafc]
         " >
-            <section className="
+            <a className="
                 flex
                 flex-1
                 flex-col
                 items-center
                 justify-center
-            ">
+                cursor-pointer
+            "
+                href='/home'
+            >
                 <GoHome className={`
                     mb-[2px]
                     ${selected == 0 && 'text-verde'}
@@ -32,14 +35,17 @@ function BottomBar({selected}: BottomBarProps) {
                     text-[12px]
                     ${selected == 0 && 'text-verde font-bold'}
                 `}>Home</span>
-            </section>
-            <section className="
+            </a>
+            <a className="
                 flex
                 flex-1
                 flex-col
                 items-center
                 justify-center
-            ">
+                cursor-pointer
+            "
+                href='/registerExpense'
+            >
                 <GoPlusCircle className={`
                     mb-[2px]
                     ${selected == 1 && 'text-verde'}
@@ -48,13 +54,14 @@ function BottomBar({selected}: BottomBarProps) {
                     text-[12px]
                     ${selected == 1 && 'text-verde font-bold'}
                 `}>Cadastrar</span>
-            </section>
-            <section className="
+            </a>
+            <a className="
                 flex
                 flex-1
                 flex-col
                 items-center
                 justify-center
+                cursor-pointer
             ">
                 <GoPerson className={`
                     mb-[2px]
@@ -64,7 +71,7 @@ function BottomBar({selected}: BottomBarProps) {
                     text-[12px]
                     ${selected == 2 && 'text-verde font-bold'}
                 `}>Conta</span>
-            </section>
+            </a>
         </nav>
     )
 }

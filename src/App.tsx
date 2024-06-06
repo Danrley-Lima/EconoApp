@@ -8,6 +8,7 @@ import { useSessionStore } from "./context/SessionStore";
 import Home from "./pages/Home";
 import { TailSpin } from "react-loader-spinner";
 import Loading from "./components/Loading";
+import Routes from "./routes";
 
 function App() {
 
@@ -38,7 +39,7 @@ function App() {
 
   return (
     <div className="font-DM-Sans">
-      <Home/>
+      <Routes />
     </div>
   );
 }

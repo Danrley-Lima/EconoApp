@@ -6,7 +6,9 @@ function CardHistory() {
     const {accounts} = useFinancesStore();
 
     return (
-        <section>
+        <section className="
+            pb-[65px]
+        " >
             <h3 className="
                 font-bold	
                 text-[22px]

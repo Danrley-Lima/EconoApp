@@ -7,8 +7,8 @@ import CardHistory from "../components/history/CardHistory";
 
 function Home() {
     return (
-        <main>
-            <Header balance={3000} />
+        <main className="" >
+            <Header balance={2000 - 1000} />
             <IncomeExpenseCard income={2000} expense={1000} />
             <CategoryExpensesCard />
             <CardHistory />
