@@ -3,8 +3,7 @@ import DonutChart from "./DonutChart";
 import { colors } from "./consts";
 
 function CategoryExpensesCard() {
-
-  const {categories} = useFinancesStore();
+  const { categories } = useFinancesStore();
 
   return (
     <div className="h-3/12 mx-6 mt-9">
@@ -18,13 +17,18 @@ function CategoryExpensesCard() {
           </div>
           <div className="mb-3 flex flex-col justify-end gap-2 text-sm">
             {categories.map((cg, index) => {
-            return <p>
-              <span className={`mr-2 inline-block h-3 w-3 border border-gray-500`} 
-                style={{
-                  backgroundColor: colors[index % colors.length]
-                }}></span>
-              {cg.name}
-            </p>})}
+              return (
+                <p key={cg.name}>
+                  <span
+                    className={`mr-2 inline-block h-3 w-3 border border-gray-500`}
+                    style={{
+                      backgroundColor: colors[index % colors.length],
+                    }}
+                  ></span>
+                  {cg.name}
+                </p>
+              );
+            })}
           </div>
         </div>
         <p className="text-right text-xs text-gray-400">Listar todos...</p>
