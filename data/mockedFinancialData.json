@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "date": "2011-04-11T10:20:30Z",
     "value": 1500.00,
     "local": "Supermercado ABC",
@@ -10,6 +11,7 @@
     "valueTotal": 1500.00
   },
   {
+    "id": 2,
     "date": "2011-04-11T10:20:30Z",
     "value": 200.00,
     "local": "Restaurante XYZ",
@@ -20,6 +22,7 @@
     "valueTotal": 200.00
   },
   {
+    "id": 3,
     "date": "2011-04-11T10:20:30Z",
     "value": 2500.00,
     "local": "Loja de Eletrônicos",
@@ -30,6 +33,7 @@
     "valueTotal": 2500.00
   },
   {
+    "id": 4,
     "date": "2011-04-11T10:20:30Z",
     "value": 300.00,
     "local": "Farmácia XYZ",
@@ -40,6 +44,7 @@
     "valueTotal": 300.00
   },
   {
+    "id": 5,
     "date": "2011-04-11T10:20:30Z",
     "value": 1200.00,
     "local": "Posto de Gasolina ABC",
@@ -50,6 +55,7 @@
     "valueTotal": 1200.00
   },
   {
+    "id": 6,
     "date": "2011-04-11T10:20:30Z",
     "value": 400.00,
     "local": "Restaurante QRS",
@@ -60,6 +66,7 @@
     "valueTotal": 400.00
   },
   {
+    "id": 7,
     "date": "2011-04-11T10:20:30Z",
     "value": 1500.00,
     "local": "Loja de Roupas ABC",
@@ -70,6 +77,7 @@
     "valueTotal": 1500.00
   },
   {
+    "id": 8,
     "date": "2011-04-11T10:20:30Z",
     "value": 180.00,
     "local": "Cinema XYZ",
