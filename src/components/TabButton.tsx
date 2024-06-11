@@ -44,7 +44,6 @@ function TabButton({ selected, items, className }: TabButtonProps) {
           onClick={(event) => {
             event.preventDefault();
             el.onClick(index);
-            console.log(index + " foi clicado " + selected);
           }}
         >
           {el.text}
