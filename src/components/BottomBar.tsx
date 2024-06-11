@@ -1,79 +1,106 @@
-import { GoHome, GoPlusCircle, GoPerson } from 'react-icons/go'
+import { GoHome, GoPlusCircle, GoPerson } from "react-icons/go";
 
 interface BottomBarProps {
-    selected: number
+  selected: number;
 }
 
-function BottomBar({selected}: BottomBarProps) {
-    return (
-        <nav className="
+function BottomBar({ selected }: BottomBarProps) {
+  return (
+    <nav
+      className="
             fixed
             bottom-0
             flex
-            items-center
-            justify-between
             h-[65px]
             w-[100%]
+            items-center
+            justify-between
             border-t-2
             bg-[#fafafc]
-        " >
-            <a className="
+        "
+    >
+      <a
+        className="
                 flex
                 flex-1
+                cursor-pointer
                 flex-col
                 items-center
                 justify-center
-                cursor-pointer
             "
-                href='/home'
-            >
-                <GoHome className={`
+        href="/home"
+      >
+        <GoHome
+          className={`
                     mb-[2px]
-                    ${selected == 0 && 'text-verde'}
-                `} size={20} />
-                <span className={`
+                    ${selected == 0 && "text-verde"}
+                `}
+          size={20}
+        />
+        <span
+          className={`
                     text-[12px]
-                    ${selected == 0 && 'text-verde font-bold'}
-                `}>Home</span>
-            </a>
-            <a className="
+                    ${selected == 0 && "font-bold text-verde"}
+                `}
+        >
+          Home
+        </span>
+      </a>
+      <a
+        className="
                 flex
                 flex-1
+                cursor-pointer
                 flex-col
                 items-center
                 justify-center
-                cursor-pointer
             "
-                href='/registerExpense'
-            >
-                <GoPlusCircle className={`
+        href="/registerExpense"
+      >
+        <GoPlusCircle
+          className={`
                     mb-[2px]
-                    ${selected == 1 && 'text-verde'}
-                `} size={20} />
-                <span className={`
+                    ${selected == 1 && "text-verde"}
+                `}
+          size={20}
+        />
+        <span
+          className={`
                     text-[12px]
-                    ${selected == 1 && 'text-verde font-bold'}
-                `}>Cadastrar</span>
-            </a>
-            <a className="
+                    ${selected == 1 && "font-bold text-verde"}
+                `}
+        >
+          Cadastrar
+        </span>
+      </a>
+      <a
+        className="
                 flex
                 flex-1
+                cursor-pointer
                 flex-col
                 items-center
                 justify-center
-                cursor-pointer
-            ">
-                <GoPerson className={`
+            "
+      >
+        <GoPerson
+          className={`
                     mb-[2px]
-                    ${selected == 2 && 'text-verde'}
-                `} size={20} />
-                <span className={`
+                    ${selected == 2 && "text-verde"}
+                `}
+          size={20}
+        />
+        <span
+          className={`
                     text-[12px]
-                    ${selected == 2 && 'text-verde font-bold'}
-                `}>Conta</span>
-            </a>
-        </nav>
-    )
+                    ${selected == 2 && "font-bold text-verde"}
+                `}
+        >
+          Conta
+        </span>
+      </a>
+    </nav>
+  );
 }
 
 export default BottomBar;

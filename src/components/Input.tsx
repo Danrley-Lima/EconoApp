@@ -48,13 +48,13 @@ const Input = ({
       </div>
       <input
         className={` 
-                placeholder-gray6
                 rounded-[9px]
                 bg-[#f5f5f5]
-                px-[18px]
-                pb-[20.25px]
-                pt-[18px]
-                text-[15px] 
+                px-[14px]
+                pb-[14px]
+                pt-[14px]
+                text-[16px]
+                placeholder-gray-600 
                 shadow-sm
                 outline-verde	
                 ${className}
