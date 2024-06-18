@@ -20,7 +20,7 @@ function App() {
     setSession(sessionJson);
     setAccounts(financialJson);
     console.log("Dados do estado:", accounts);
-  }, []);
+  }, [accounts, setAccounts, setSession]);
 
   useEffect(() => {
     if (session && accounts.length > 0)
