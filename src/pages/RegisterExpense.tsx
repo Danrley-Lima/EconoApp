@@ -7,7 +7,6 @@ function RegisterExpense() {
     <main className="w-full">
       <TopBar title="Cadastrar" />
       <FormExpense />
-      {/* Gambiarra pra o BottomBar não cobrir o conteúdo */}
       <div className="h-24">
         <BottomBar selected={1} />
       </div>

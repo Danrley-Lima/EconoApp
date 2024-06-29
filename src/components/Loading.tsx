@@ -1,4 +1,4 @@
-import { TailSpin, ThreeCircles } from "react-loader-spinner";
+import { ThreeCircles } from "react-loader-spinner";
 
 function Loading() {
     return (

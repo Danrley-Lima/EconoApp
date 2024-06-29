@@ -2,8 +2,13 @@ import { useState } from "react";
 import { numberToCurrency } from "../../utils/numberToCurrency";
 import Input from "../Input";
 import TabButton from "../TabButton";
+import { Account, useFinancesStore } from "../../context/FinancesStore";
+import InputAutocomplete from "../InputAutocomplete";
 
 function FormExpense() {
+
+  const { addAccount } = useFinancesStore();
+
   const [selectedTab, setSelectedTab] = useState<number>(0);
   const [isInstallment, setIsInstallment] = useState<boolean>(false);
   const [name, setName] = useState<string>("");
@@ -16,17 +21,12 @@ function FormExpense() {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    const data = {
-      category: selectedTab === 0 ? "despesa" : "receita",
-      name,
-      value,
-      date,
-      isInstallment,
-      installments,
-      installmentsValue: isInstallment ? value / installments : value,
-    };
+    // const data: Account = {
+    //   local: name,
+    //   category: 
+    // };
 
-    console.log(data);
+    // addAccount(data);
   };
 
   return (
@@ -54,10 +54,20 @@ function FormExpense() {
         selected={selectedTab}
       />
       <Input
-        labelText={`Nome da ${selectedTab == 0 ? "despesa" : "receita"}`}
+        labelText={`Local da ${selectedTab == 0 ? "despesa" : "receita"}`}
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
+      <InputAutocomplete 
+        labelText={"Categoria"} 
+        suggestions={[
+          "Alimentação",
+          "Eletrônicos",
+          "Farmácia",
+          "Logística",
+          "Vestimenta",
+          "Lazer",
+        ]} />
       <Input
         labelText="Data"
         type="date"
@@ -105,7 +115,6 @@ function FormExpense() {
       )}
 
       <button
-        onClick={() => {}}
         className="rounded-lg bg-blue-500 px-4 py-3 font-bold text-white hover:bg-blue-700"
       >
         Enviar
