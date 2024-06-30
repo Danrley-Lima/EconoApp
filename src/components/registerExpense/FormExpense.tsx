@@ -11,6 +11,7 @@ function FormExpense() {
 
   const [selectedTab, setSelectedTab] = useState<number>(0);
   const [isInstallment, setIsInstallment] = useState<boolean>(false);
+  const [category, setCategory] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [value, setValue] = useState<number>(0);
   const [date, setDate] = useState<string>("");
@@ -21,12 +22,19 @@ function FormExpense() {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    // const data: Account = {
-    //   local: name,
-    //   category: 
-    // };
+    const data: Account = {
+      local: name,
+      type: selectedTab == 0 ? 'expense' : 'income',
+      category: category,
+      date: date,
+      parcel: isInstallment,
+      totalParcels: installments,
+      value: value,
+      valueParcel: isInstallment ? (value / installments) : null,
+      valueTotal: value,
+    };
 
-    // addAccount(data);
+    addAccount(data);
   };
 
   return (
@@ -60,6 +68,7 @@ function FormExpense() {
       />
       <InputAutocomplete 
         labelText={"Categoria"} 
+        onChange={(e) => setCategory(e)}
         suggestions={[
           "Alimentação",
           "Eletrônicos",

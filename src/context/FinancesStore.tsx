@@ -6,7 +6,8 @@ export type CategoryEntitie = {
 };
 
 export type Account = {
-  id: number;
+  id?: number;
+  type: 'expense' | 'income'
   date: string;
   value: number;
   local: string;
@@ -53,6 +54,7 @@ export const useFinancesStore = create<FinancesState>((set) => ({
     set({ accounts: newAccounts, categories: newCategories });
   },
   addAccount: (newAccount) => {
+    console.log(newAccount);
     set((state) => {
       const indexFind = state.categories.findIndex(
         (nc) => nc.name == newAccount.category,
