@@ -19,7 +19,7 @@ function App() {
     // Defina o estado inicial com os dados do JSON
     setSession(sessionJson);
     setAccounts(financialJson);
-    console.log("Dados do estado:", accounts);
+    localStorage.setItem("data", JSON.stringify(sessionJson));
   }, [accounts, setAccounts, setSession]);
 
   useEffect(() => {

@@ -1,4 +1,5 @@
 import { create } from "zustand";
+// import fs from "fs";
 
 export type CategoryEntitie = {
   name: string;
@@ -7,7 +8,7 @@ export type CategoryEntitie = {
 
 export type Account = {
   id?: number;
-  type: 'expense' | 'income'
+  type: "expense" | "income";
   date: string;
   value: number;
   local: string;
@@ -23,7 +24,7 @@ interface FinancesState {
   categories: CategoryEntitie[];
   includeCategorie: (categorieName: string) => void;
   setAccounts: (newAccounts: Account[]) => void;
-  addAccount: (newAccount: Account) => void;
+  addAccount: (newAccount: Account, onCompleted: () => void) => void;
 }
 
 export const useFinancesStore = create<FinancesState>((set) => ({
@@ -53,8 +54,9 @@ export const useFinancesStore = create<FinancesState>((set) => ({
     });
     set({ accounts: newAccounts, categories: newCategories });
   },
-  addAccount: (newAccount) => {
+  addAccount: (newAccount, onCompleted) => {
     console.log(newAccount);
+    salvarContaJson(newAccount);
     set((state) => {
       const indexFind = state.categories.findIndex(
         (nc) => nc.name == newAccount.category,
@@ -70,8 +72,40 @@ export const useFinancesStore = create<FinancesState>((set) => ({
         accounts: [...state.accounts, newAccount],
       };
     });
+    onCompleted();
   },
 }));
+
+function salvarContaJson(conta: Account) {
+  const contas = localStorage.getItem("data");
+  const arrayContas = JSON.parse(contas || "[]");
+  arrayContas.push(conta);
+  localStorage.setItem("data", JSON.stringify(arrayContas));
+}
+
+// function salvarContaJson(conta: Account) {
+//   fs.readFile("../../data/mockedFinancialData.json", "utf-8", (err, data) => {
+//     if (err) {
+//       console.error("Erro ao ler o arquivo:", err);
+//       return;
+//     }
+//     const jsonData = JSON.parse(data);
+//     jsonData.push(conta);
+//     const updatedJsonData = JSON.stringify(jsonData, null, 2);
+//     fs.writeFile(
+//       "../../data/mockedFinancialData.json",
+//       updatedJsonData,
+//       "utf8",
+//       (err) => {
+//         if (err) {
+//           console.error("Erro ao escrever no arquivo:", err);
+//           return;
+//         }
+//         console.log("Arquivo atualizado com sucesso!");
+//       },
+//     );
+//   });
+// }
 
 // export function useFinancesStore() {
 //   return create<FinancesState>((set) => ({

@@ -94,5 +94,17 @@
     "totalParcels": null,
     "valueParcel": null,
     "valueTotal": 180.00
+  },
+  {
+    "id": 9,
+    "type": "income",
+    "date": "2011-04-11T10:20:30Z",
+    "value": 3500.00,
+    "local": "Salário",
+    "category": "Lazer",
+    "parcel": false,
+    "totalParcels": null,
+    "valueParcel": null,
+    "valueTotal": 3500.00
   }
 ]

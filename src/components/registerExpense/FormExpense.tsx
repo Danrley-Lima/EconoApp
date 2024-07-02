@@ -4,8 +4,10 @@ import Input from "../Input";
 import TabButton from "../TabButton";
 import { Account, useFinancesStore } from "../../context/FinancesStore";
 import InputAutocomplete from "../InputAutocomplete";
+import { useNavigate } from "react-router-dom";
 
 function FormExpense() {
+  const navigate = useNavigate();
 
   const { addAccount } = useFinancesStore();
 
@@ -24,17 +26,17 @@ function FormExpense() {
     e.preventDefault();
     const data: Account = {
       local: name,
-      type: selectedTab == 0 ? 'expense' : 'income',
+      type: selectedTab == 0 ? "expense" : "income",
       category: category,
       date: date,
       parcel: isInstallment,
       totalParcels: installments,
       value: value,
-      valueParcel: isInstallment ? (value / installments) : null,
+      valueParcel: isInstallment ? value / installments : null,
       valueTotal: value,
     };
 
-    addAccount(data);
+    addAccount(data, () => navigate("/home"));
   };
 
   return (
@@ -66,8 +68,9 @@ function FormExpense() {
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      <InputAutocomplete 
-        labelText={"Categoria"} 
+      <InputAutocomplete
+        key={category.length}
+        labelText={"Categoria"}
         onChange={(e) => setCategory(e)}
         suggestions={[
           "Alimentação",
@@ -76,7 +79,8 @@ function FormExpense() {
           "Logística",
           "Vestimenta",
           "Lazer",
-        ]} />
+        ]}
+      />
       <Input
         labelText="Data"
         type="date"
@@ -123,9 +127,7 @@ function FormExpense() {
         </>
       )}
 
-      <button
-        className="rounded-lg bg-blue-500 px-4 py-3 font-bold text-white hover:bg-blue-700"
-      >
+      <button className="rounded-lg bg-blue-500 px-4 py-3 font-bold text-white hover:bg-blue-700">
         Enviar
       </button>
     </form>
