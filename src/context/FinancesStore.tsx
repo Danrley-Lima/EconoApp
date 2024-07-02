@@ -44,6 +44,8 @@ export const useFinancesStore = create<FinancesState>((set) => ({
   setAccounts: (newAccounts) => {
     const newCategories: CategoryEntitie[] = [];
     newAccounts.forEach((na) => {
+      if (na.type != 'expense')
+        return;
       const indexFind = newCategories.findIndex((nc) => nc.name == na.category);
       if (indexFind == -1)
         newCategories.push({
@@ -57,16 +59,17 @@ export const useFinancesStore = create<FinancesState>((set) => ({
   },
   addAccount: (newAccount, onCompleted) => {
     set((state) => {
-      const indexFind = state.categories.findIndex(
-        (nc) => nc.name == newAccount.category,
-      );
-      if (indexFind == -1)
-        state.categories.push({
-          name: newAccount.category,
-          quant: newAccount.value,
-        });
-      else state.categories[indexFind].quant += newAccount.value;
-
+      if (newAccount.type == 'expense'){
+        const indexFind = state.categories.findIndex(
+          (nc) => nc.name == newAccount.category,
+        );
+        if (indexFind == -1)
+          state.categories.push({
+            name: newAccount.category,
+            quant: newAccount.value,
+          });
+        else state.categories[indexFind].quant += newAccount.value;
+      }
       return {
         accounts: [...state.accounts, newAccount],
       };
