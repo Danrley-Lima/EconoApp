@@ -16,11 +16,16 @@ function App() {
   const { setAccounts, accounts } = useFinancesStore();
 
   useEffect(() => {
-    // Defina o estado inicial com os dados do JSON
+    var dataStorage = localStorage.getItem("data");
+
     setSession(sessionJson);
-    setAccounts(financialJson);
-    localStorage.setItem("data", JSON.stringify(sessionJson));
-  }, [accounts, setAccounts, setSession]);
+
+    if (dataStorage == null){
+      setAccounts(financialJson);
+    } else {
+      setAccounts(JSON.parse(dataStorage));
+    }
+  }, []);
 
   useEffect(() => {
     if (session && accounts.length > 0)

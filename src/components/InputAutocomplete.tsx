@@ -82,7 +82,9 @@ const InputAutocomplete = ({
                 `}>
                     {filteredSuggestions.map((suggestion, index) => {
                     return (
-                        <li className={`
+                        <li 
+                        key={`suggest ${index}`}
+                        className={`
                             hover:font-bold
                             cursor-pointer
                         `} onClick={onClick}>

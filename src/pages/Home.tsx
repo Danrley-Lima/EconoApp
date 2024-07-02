@@ -18,7 +18,7 @@ function Home() {
 
   return (
     <main className="">
-      <Header balance={2000 - 1000} />
+      <Header balance={receitas - despesas} />
       <IncomeExpenseCard income={receitas} expense={despesas} />
       <CategoryExpensesCard />
       <CardHistory />

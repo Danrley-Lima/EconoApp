@@ -69,7 +69,6 @@ function FormExpense() {
         onChange={(e) => setName(e.target.value)}
       />
       <InputAutocomplete
-        key={category.length}
         labelText={"Categoria"}
         onChange={(e) => setCategory(e)}
         suggestions={[
@@ -105,7 +104,6 @@ function FormExpense() {
       <Input
         labelText="Valor"
         type="number"
-        value={value}
         onChange={(e) => setValue(Number(e.target.value))}
       />
 

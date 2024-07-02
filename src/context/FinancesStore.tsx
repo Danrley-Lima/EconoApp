@@ -8,7 +8,7 @@ export type CategoryEntitie = {
 
 export type Account = {
   id?: number;
-  type: "expense" | "income";
+  type: string;
   date: string;
   value: number;
   local: string;
@@ -52,11 +52,10 @@ export const useFinancesStore = create<FinancesState>((set) => ({
         });
       else newCategories[indexFind].quant += na.value;
     });
+    localStorage.setItem("data", JSON.stringify(newAccounts));
     set({ accounts: newAccounts, categories: newCategories });
   },
   addAccount: (newAccount, onCompleted) => {
-    console.log(newAccount);
-    salvarContaJson(newAccount);
     set((state) => {
       const indexFind = state.categories.findIndex(
         (nc) => nc.name == newAccount.category,
@@ -72,6 +71,7 @@ export const useFinancesStore = create<FinancesState>((set) => ({
         accounts: [...state.accounts, newAccount],
       };
     });
+    salvarContaJson(newAccount);
     onCompleted();
   },
 }));
